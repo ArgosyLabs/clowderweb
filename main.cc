@@ -91,7 +91,7 @@ main(int argc, char ** argv) {
     sleep(600);
     if (!TRY(fork)) {
         TRY(setsid);
-        TRY(execve, argv[0], argv, environ);
+        TRY(execvpe, argv[0], argv, environ);
     }
     sleep(10);
 
