@@ -66,7 +66,7 @@ main(int argc, char ** argv) {
             c += s;
         }
 
-        if ('?' == *c) {
+        if ('#' == *c) {
             s = strcspn(c, "");
             config.assign(c+1, s-1);
             c += s;
