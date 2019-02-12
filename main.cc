@@ -88,7 +88,7 @@ main(int argc, char ** argv) {
         continue;
     }
 
-    while (true) { }
+    while (true) { sleep (1); }
 
     return EXIT_SUCCESS;
 }
