@@ -4,8 +4,8 @@ clowderweb
 clowderweb is a modular web application server written in C++
 
 Requires
-	* [civetweb](https://github.com/civetweb/civetweb).
-	* [libace](https://github.com/pallas/libace).
+* [civetweb](https://github.com/civetweb/civetweb)
+* [libace](https://github.com/pallas/libace)
 
 Individual modules are compiled as shared libraries, linked against
 libclowderweb, and loaded at a specific prefix when starting the clowderweb
