@@ -160,6 +160,10 @@ handler::wrapper(mg_connection *conn, void *p) try {
         mg_send_http_redirect(conn, obuf.rope().replace_with_c_str(), rv);
         break;
 
+    case 404:
+        mg_send_http_error(conn, rv, "%s", "Not found");
+        break;
+
     default:
         throw std::runtime_error("error");
     }
