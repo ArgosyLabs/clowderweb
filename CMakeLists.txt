@@ -33,7 +33,7 @@ if (civetweb_LIBRARY)
 endif()
 
 
-foreach(module system_info)
+foreach(module system_info norobots)
 	add_library(${module} SHARED ${module}.cc )
 	set_target_properties(${module} PROPERTIES PREFIX "")
 	target_link_libraries(${module} libclowderweb)
