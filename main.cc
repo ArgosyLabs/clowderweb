@@ -15,6 +15,15 @@ void mg_atexit() { mg_exit_library(); }
 
 int
 main(int argc, char ** argv) {
+    if (argc <= 1) {
+        for (const mg_option * opt = mg_get_valid_options() ; opt->name ; ++opt) {
+            std::cout << opt->name;
+            if (opt->default_value)
+                std::cout << "\t= " << opt->default_value;
+            std::cout << std::endl;
+        }
+    }
+
     lace::haystack options;
     for (int i = 1 ; i < argc ; ++i) {
         char * arg = argv[i];
