@@ -13,7 +13,12 @@ add_executable(clowderweb main.cc)
 target_link_libraries(clowderweb ${CMAKE_DL_LIBS})
 install(TARGETS clowderweb RUNTIME DESTINATION bin)
 
-foreach(library civetweb z ssl crypto pthread)
+include_directories(
+	${CMAKE_CURRENT_SOURCE_DIR}/../civetweb/include
+	${CMAKE_CURRENT_SOURCE_DIR}/../build/include/
+)
+
+foreach(library z ssl crypto pthread)
 	find_library(${library}_LIBRARY ${library})
 	if (${library}_LIBRARY)
 		target_link_libraries(clowderweb ${${library}_LIBRARY})
@@ -28,9 +33,8 @@ foreach(header handler.h)
 	install(FILES ${header} DESTINATION "include/clowderweb")
 endforeach(header)
 
-if (civetweb_LIBRARY)
-	target_link_libraries(libclowderweb ${civetweb_LIBRARY})
-endif()
+target_link_libraries(clowderweb ${CMAKE_CURRENT_SOURCE_DIR}/../civetweb/libcivetweb.a)
+target_link_libraries(clowderweb pthread)
 
 
 foreach(module system_info norobots)
