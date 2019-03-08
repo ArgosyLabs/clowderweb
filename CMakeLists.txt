@@ -15,7 +15,7 @@ install(TARGETS clowderweb RUNTIME DESTINATION bin)
 
 include_directories(
 	${CMAKE_CURRENT_SOURCE_DIR}/../civetweb/include
-	${CMAKE_CURRENT_SOURCE_DIR}/../build/include/
+	${CMAKE_CURRENT_SOURCE_DIR}/../build_dir/include/
 )
 
 foreach(library z ssl crypto pthread)
